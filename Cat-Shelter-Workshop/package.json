@@ -1,0 +1,16 @@
+{
+  "name": "cat-shelter-workshop",
+  "version": "1.0.0",
+  "description": "SoftUni Workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "softuni",
+    "workshop",
+    "cat shelter"
+  ],
+  "author": "Nikolay Kovachev",
+  "license": "ISC"
+}
