@@ -1,3 +1,8 @@
 {
-  "port": 3000
+  "port": 3000,
+  "viewsDir": "views",
+  "staticFileDir": "/content/",
+  "database": "./database.json",
+  "encoding": "UTF-8",
+  "imageUrl": "https://cdn.pixabay.com/photo/"
 }
