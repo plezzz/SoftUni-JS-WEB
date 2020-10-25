@@ -1,6 +1,4 @@
 const config = require('./config.json');
-const database = require('./database.json')
-const utils = require('./utils.js')
 const http = require('http');
 const url = require('url');
 const path = require('path');
