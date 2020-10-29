@@ -8,25 +8,27 @@ module.exports = {
         })
     },
 
-    getCubeDetails(req, res) {
+    getCubeDetails(req, res, next) {
         cubeModel
             .findById(req.params.id)
             .populate('accessories')
             .lean()
             .then(cube => {
                 return res.render('details-cube', {cube});
-            });
+            })
+            .catch(next);
     },
-    createCubeGET(req, res) {
+    createCubeGET(req, res, next) {
         return res.render('create-edit-cube');
     },
     createCubePOST(req, res) {
         let {name, description, imageURL, difficultyLevel} = req.body;
         cubeModel.create({name, description, imageURL, difficultyLevel})
             .then(res.redirect('/'))
+            .catch(next);
     },
 
-    search(req, res) {
+    search(req, res, next) {
         let {search, from, to} = req.body;
         let query = {};
 
@@ -40,26 +42,34 @@ module.exports = {
 
         cubeModel.find(query).populate('accessories').lean()
             .then(cubes => {
-                res.render('index', {cubes, from, search, to});
+                cubes.length === 0 ?
+                    res.redirect('/') :
+                    res.render('index', {cubes, from, search, to});
             })
+            .catch(next);
     },
 
-    deleteCube(req, res) {
+    deleteCube(req, res, next) {
         cubeModel.findByIdAndDelete(req.params.id)
             .then(res.redirect('/'))
+            .catch(next);
     },
 
-    editCubeGET(req, res) {
-        cubeModel.findById(req.params.id).lean().then(cube => {
-            return res.render('create-edit-cube', {cube, edit: true});
-        });
+    editCubeGET(req, res, next) {
+        cubeModel.findById(req.params.id)
+            .lean()
+            .then(cube => {
+                return res.render('create-edit-cube', {cube, edit: true});
+            })
+            .catch(next);
     },
-    editCubePOST(req, res) {
+    editCubePOST(req, res, next) {
         cubeModel.updateOne({_id: req.params.id}, req.body)
             .then(res.redirect(`/details-cube/${req.params.id}`))
+            .catch(next);
     },
 
-    attachCubeGET(req, res) {
+    attachCubeGET(req, res, next) {
         Promise.all([
             accessoryModel.findById(req.params.id).lean(),
             cubeModel.find({accessories: {$nin: req.params.id}}).lean()
@@ -69,7 +79,7 @@ module.exports = {
                 cubes,
                 noAvailableCubes: cubes.length === 0
             });
-        })
+        }).catch(next);
     },
 
     attachCubePOST(req, res, next) {

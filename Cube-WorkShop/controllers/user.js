@@ -25,6 +25,9 @@ module.exports = {
     },
     postLogin(req, res, next) {
         const {username, password} = req.body;
+        if (!password){
+            throw new Error('Password is require')
+        }
         userModel.findOne({username})
             .then(user => Promise.all([user, user ? user.comparePasswords(password) : false]))
             .then(([user, match]) => {

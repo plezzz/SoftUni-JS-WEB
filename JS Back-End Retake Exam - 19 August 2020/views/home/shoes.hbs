@@ -1,0 +1,13 @@
+{{#if shoes}}
+    <div class="shoes">
+        {{#each shoes}}
+            <div class="shoe">
+                <img src="{{imageURL}}" alt="{{name}}">
+                <h3>{{name}}</h3>
+                <a href="/shoes/details/{{_id}}">Buy it for ${{distanceFixed price}}</a>
+            </div>
+        {{/each}}
+    </div>
+{{else}}
+    <h1>No shoes to display. Be the first to create a new offer...</h1>
+{{/if}}

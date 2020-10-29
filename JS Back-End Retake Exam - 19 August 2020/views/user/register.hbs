@@ -1,0 +1,32 @@
+<h1>Register</h1>
+<p class="form-info">Already registered?
+    <a href="/login">Login now</a> and have some fun!
+</p>
+<form action="/user/register" method="post">
+    <div>
+        <label>
+            <input type="email" name="email" placeholder="Email..." value="{{obj.email}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="fullName" placeholder="Full name..." value="{{obj.fullName}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="password" name="password" placeholder="Password" value="{{obj.password}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="password" name="repeatPassword" placeholder="Re-password" value="{{obj.repeatPassword}}">
+        </label>
+    </div>
+    <div>
+        {{#each message}}
+            <p class="message"> {{this}}</p>
+        {{/each}}
+        <button>Register</button>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+<h1>Edit Offer</h1>
+{{#each message}}
+    <p class="message"> {{this}}</p>
+{{/each}}
+<form action="/shoes/edit/{{_id}}" method="post">
+    <div>
+        <label>
+            <input type="text" name="name" placeholder="Name..." value="{{name}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="price" placeholder="Price..." value="{{price}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="imageURL" placeholder="Image url..." value="{{imageURL}}">
+        </label>
+    </div>
+    <div>
+        <label>
+           <textarea name="description"
+                     placeholder="Give us some description about this offer..."> {{description}}</textarea>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="brand" placeholder="Brand..." value="{{brand}}">
+        </label>
+    </div>
+    <div>
+        <button>Edit</button>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+<h1>Create New Offer</h1>
+    {{#each message}}
+        <p class="message">{{this}}</p>
+    {{/each}}
+
+<form action="/shoes/create" method="post">
+    <div>
+        <label>
+            <input type="text" name="name" placeholder="Name..." value="{{obj.name}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="price" placeholder="Price..." value="{{obj.price}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="imageURL" placeholder="Image url..." value="{{obj.imageURL}}">
+        </label>
+    </div>
+    <div>
+        <label>
+            <textarea name="description"
+                      placeholder="Give us some description about this offer...">{{obj.description}}</textarea>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" name="brand" placeholder="Brand..." value="{{shoe.brand}}">
+        </label>
+    </div>
+    <div>
+        <button>Create</button>
+    </div>
+</form>

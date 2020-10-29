@@ -1,0 +1,23 @@
+<h1>Login</h1>
+<p class="form-info">Don't have account?
+    <a href="/register">Register now</a> and fix that!
+</p>
+<form action="/login" method="post">
+    <div>
+        <label>
+            <input type="email" name="email" placeholder="Email..." value="{{obj.email}}">
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <input type="password" name="password" placeholder="Password...">
+        </label>
+    </div>
+    <div>
+        {{#each message}}
+            <p class="message"> {{this}}</p>
+        {{/each}}
+        <button>Login</button>
+    </div>
+</form>
