@@ -1,7 +1,7 @@
 const routers = [
     {home: require('./home')},
     {user: require('./user')},
-    {shoe: require('./shoe')},
+    {play: require('./play')},
     {error: require('./error')}
 ];
 

@@ -13,13 +13,13 @@ module.exports = (data = null) => {
                 _message: "User validation failed",
                 errors: {error: {properties: {message: 'The given username is already is use!'}}}
             },
-            minLengthUsername: 'The username should be at least 3 characters long!',
-            minLengthPass: 'The password should be at least 3 characters long!'
+            minLengthUsername: 'The username should be at least 3 characters long and should consist only english letters and digits!',
+            minLengthPass: 'The password should be at least 3 characters long and should consist only english letters and digits'
         },
         errorLogin: {
-            password: 'The provided username or password does not matched.'
+            password: 'The repeat password should be equal to the password'
         },
-        errorShoes: {
+        errorPlay: {
             name: 'Name' + required,
             price: 'Price' + required,
             imageURL: 'Image URL' + required,

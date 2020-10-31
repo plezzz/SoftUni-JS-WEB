@@ -1,40 +1,41 @@
-const {errorShoes} = require('../config/messages')();
+const {errorPlay} = require('../config/messages')();
 
 module.exports = (mongoose) => {
     const {Schema, model: Model} = mongoose;
-    const {String, ObjectId, Boolean, Date} = Schema.Types;
+    const {String, ObjectId, Boolean} = Schema.Types;
 
     const playSchema = new Schema({
         title: {
             type: String,
-            required: [true, errorShoes.name]
+            required: [true, errorPlay.name]
         },
         imageURL: {
             type: String,
-            required: [true, errorShoes.imageURL]
+            required: [true, errorPlay.imageURL]
         },
         description: {
             type: String,
-            required: [true, errorShoes.description]
+            required: [true, errorPlay.description]
         },
-        isPublic:{
-            type:Boolean,
+        isPublic: {
+            type: Boolean,
             default: false
-        },
-        createdAt: {
-            type: Date,
-            required: true
         },
         createdBy: {
             type: ObjectId,
             ref: "User",
             required: true
         },
+        likes: {
+            type: Number,
+            default: 0
+        },
         usersLiked: [{
             type: ObjectId,
             ref: "User"
         }]
-    });
+    }, {timestamps: true});
+
 
     return Model('Play', playSchema);
 };

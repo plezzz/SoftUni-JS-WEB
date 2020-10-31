@@ -18,8 +18,8 @@
     "handlebars",
     "mongodb",
     "mongoose",
-    "Shoe",
-    "Shelf",
+    "Theaters",
+    "Play",
     "JS",
     "exam"
   ],

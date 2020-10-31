@@ -4,16 +4,21 @@ module.exports = {
     get: {
         home(req, res, next) {
             if (req.user) {
-                // Shoe
-                //     .find({})
-                //     .sort({ buyers: 'desc'})
-                //     .lean()
-                //     .then(shoes => {
-                //         res.render('home/theater', {shoes})
-                //     })
-                //     .catch(next)
-                return;
+                let searchArgs='createdAt'
+                if (req.query.search) searchArgs = req.query.search;
+                let sortParams = {};
+                sortParams[searchArgs] = 'desc'
+                Play
+                    .find({isPublic: true})
+                    .sort(sortParams)
+                    .lean()
+                    .then(plays => {
+                        res.render('home/theater', {plays})
+                    })
+                    .catch(next);
+                return
             }
+
             Play
                 .find({isPublic: true})
                 .sort({likedPlays: 'desc'})

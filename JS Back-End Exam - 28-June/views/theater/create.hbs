@@ -1,20 +1,20 @@
-<form class="theater-form" action="" method="">
+<form class="theater-form" action="/create" method="post">
     <h1>Create Theater</h1>
     <div>
         <label for="title">Theater Title:</label>
-        <input type="text" placeholder="Theater name" value="">
+        <input type="text" id="title" name="title" placeholder="Theater name" value="{{obj.title}}">
     </div>
     <div>
         <label for="description">Theater Description:</label>
-        <textarea placeholder="Description" ></textarea>
+        <textarea id="description" name="description" placeholder="Description" >{{obj.description}}</textarea>
     </div>
     <div>
-        <label for="imageUrl">Image url:</label>
-        <input type="text" placeholder="Image Url" value="">
+        <label for="imageURL">Image URL:</label>
+        <input type="text" id="imageURL" name="imageURL" placeholder="Image URL" value="{{obj.imageURL}}">
     </div>
     <div class="check">
-        <input type="checkbox" id="check-box" >
-        <label for="check-box">Public</label>
+        <input type="checkbox" id="checkbox" name="checkbox" {{#if checkbox}}checked{{/if}}>
+        <label for="checkbox">Public</label>
     </div>
     <button class="btn" type="submit">Submit</button>
 </form>

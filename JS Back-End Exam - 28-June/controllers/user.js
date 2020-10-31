@@ -25,7 +25,7 @@ module.exports = {
                 .lean()
                 .then(user => {
                         user.offersBought.forEach(offer => {
-                            total += offer.price
+                            total += offer
                         })
                         res.render(templateDir('profile'), {user, myOffers, total})
                     }
@@ -48,9 +48,9 @@ module.exports = {
                 .catch(next)
         },
         login(req, res, next) {
-            const {email, password} = {...req.body};
+            const {username, password} = {...req.body};
 
-            User.findOne({email})
+            User.findOne({username})
                 .then((user) => {
                     return Promise.all([
                         user ? user.comparePasswords(password, next) : false,
@@ -65,7 +65,7 @@ module.exports = {
                     const token = jwt.createToken(user._id);
 
                     res.cookie(cookie, token, {maxAge: 3600000})
-                    res.redirect('/');
+                    res.redirect('/home');
                 })
                 .catch(next)
         }

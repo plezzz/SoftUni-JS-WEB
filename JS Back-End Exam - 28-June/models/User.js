@@ -10,19 +10,21 @@ module.exports = (mongoose, bcrypt) => {
             type: String,
             minlength: [3, errorRegister.minLengthUsername],
             required: [true, errorRegister.username],
-            unique: [true, errorRegister.alreadyInUse]
+            unique: [true, errorRegister.alreadyInUse],
+            match: [/^[a-zA-Z0-9]+$/, errorRegister.minLengthUsername],
+            index: true
         },
         password: {
             type: String,
             minlength: [3, errorRegister.minLengthPass],
-            required: [true, errorRegister.password]
+            required: [true, errorRegister.password],
+            match: [/^[a-zA-Z0-9]+$/, errorRegister.minLengthPass],
+            index: true
         },
-        likedPlays: [
-            {
-                type: ObjectId,
-                ref: "Shoe"
-            }
-        ]
+        likedPlays: [{
+            type: ObjectId,
+            ref: "Play"
+        }]
     });
 
 

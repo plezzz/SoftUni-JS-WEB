@@ -10,16 +10,16 @@ module.exports = {
         create(req, res) {
             res.render(templateDir('create'))
         },
-        details(req, res, next) {
+        details: function (req, res, next) {
             let id = req.params.shoeId
             let isCreator = false;
             let isBuyer = false
             let userID = req.user._id.toString()
             let buyers = 0;
+
             Shoe
                 .findOne({_id: id})
                 .lean()
-                .populate('user')
                 .then(shoe => {
                     shoe.createdBy.toString() === userID ? isCreator = true : isCreator = false
                     if (shoe.buyers) {
@@ -30,8 +30,7 @@ module.exports = {
                             }
                         })
                     }
-                    res
-                        .render(templateDir('details'), {shoe, isCreator, isBuyer, buyers})
+                    res.render(templateDir('details'), {shoe, isCreator, isBuyer, buyers})
                 })
                 .catch(next)
         },
@@ -64,8 +63,6 @@ module.exports = {
                 res.redirect(`/shoes/details/${shoeID}`)
             })
                 .catch(next)
-
-
         }
     },
 

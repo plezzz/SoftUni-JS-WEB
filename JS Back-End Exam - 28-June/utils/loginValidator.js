@@ -2,8 +2,8 @@ const {errorRegister} = require('../config/messages')()
 
 module.exports = (req, res, next) => {
     let errors = {};
-    if (!req.body.email) {
-        errors['errorEmail'] = {properties: {message: errorRegister.email}}
+    if (!req.body.username) {
+        errors['errorUsername'] = {properties: {message: errorRegister.username}}
     }
     if (!req.body.password) {
         errors['errorPassword'] = {properties: {message: errorRegister.password}}

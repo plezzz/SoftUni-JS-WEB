@@ -30,9 +30,9 @@ module.exports = function globalErrorHandler(err, req, res, next) {
         return;
     }
 
-    if (err._message === 'Shoe validation failed') {
+    if (err._message === 'Play validation failed') {
         let messages = normalizeErrors(err.errors)
-        render('shoes/create', messages, true)
+        render('theater/create', messages, true)
         return;
     }
     if (err._message === 'User validation failed') {
