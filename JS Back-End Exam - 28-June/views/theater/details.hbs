@@ -1,25 +1,25 @@
 <div class="container">
 
     <section class="details">
-        <h1>{{play.title}}</h1>
+        <h1>{{trip.title}}</h1>
         <div>
-            <img src="{{play.imageURL}}" alt="{{play.title}}"/>
+            <img src="{{trip.imageURL}}" alt="{{trip.title}}"/>
         </div>
     </section>
 
     <section class="details">
         <h3>Theater Description</h3>
-        <p>{{play.description}}</p>
+        <p>{{trip.description}}</p>
         {{#if isLogged}}
             <div class="buttons">
                 {{#if isCreator}}
-                    <a class="btn delete" href="/play/delete/{{play._id}}">Delete</a>
-                    <a class="btn edit" href="/play/edit/{{play._id}}">Edit</a>
+                    <a class="btn delete" href="/trip/delete/{{trip._id}}">Delete</a>
+                    <a class="btn edit" href="/trip/edit/{{trip._id}}">Edit</a>
                 {{else}}
                     {{#if isLiked}}
-                        <span class="liked">You have already liked this play!</span>
+                        <span class="liked">You have already liked this trip!</span>
                     {{else}}
-                        <a class="btn like" href="/play/like/{{play._id}}">Like</a>
+                        <a class="btn like" href="/trip/like/{{trip._id}}">Like</a>
                     {{/if}}
                 {{/if}}
             </div>

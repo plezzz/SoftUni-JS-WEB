@@ -6,8 +6,8 @@
     </div>
     <div class="shoes">
         {{#each user.offersBought}}
-            <div class="play">
-                <img src="{{imageURL}}" alt="didas Falcon">
+            <div class="shoe">
+                <img src="{{imageURL}}" alt="{{name}}">
                 <h3>{{name}} <span>${{distanceFixed price}}</span></h3>
             </div>
         {{/each}}

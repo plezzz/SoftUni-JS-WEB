@@ -23,17 +23,16 @@ module.exports = {
     },
     post: {
         register(req, res, next) {
-            const {username, password, repeatPassword} = {...req.body};
-            User.create({username, password, repeatPassword})
+            const {email, password, repeatPassword} = {...req.body};
+            User.create({email, password, repeatPassword})
                 .then(() => {
-                    res.redirect('/')
+                    res.redirect('/login')
                 })
                 .catch(next)
         },
         login(req, res, next) {
-            const {username, password} = {...req.body};
-
-            User.findOne({username})
+            const {email, password} = {...req.body};
+            User.findOne({email})
                 .then((user) => {
                     return Promise.all([
                         user ? user.comparePasswords(password, next) : false,
@@ -44,7 +43,6 @@ module.exports = {
                     if (!isPasswordMatched) {
                         throw new Error(errorLogin.password)
                     }
-
                     const token = jwt.createToken(user._id);
 
                     res.cookie(cookie, token, {maxAge: 3600000})

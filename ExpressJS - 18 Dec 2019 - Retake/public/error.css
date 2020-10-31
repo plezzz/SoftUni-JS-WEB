@@ -1,0 +1,16 @@
+.errorImg{
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+.errorText{
+    font-size: large;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.errorText > p:nth-child(2) > b:nth-child(1){
+    color: #234465;
+}

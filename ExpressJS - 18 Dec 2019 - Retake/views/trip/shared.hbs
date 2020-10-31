@@ -1,0 +1,14 @@
+<div class="container" style="height: 90vh;">
+    <!-- Jumbotron Header -->
+    {{>jumbo}}
+
+    <!-- Page Features -->
+    <div class="row text-center">
+        {{#if t}}
+            {{>shared}}
+        {{else}}
+            {{>no-shared}}
+        {{/if}}
+    </div>
+    <!-- /.row -->
+</div>
