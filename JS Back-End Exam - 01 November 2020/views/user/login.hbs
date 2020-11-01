@@ -1,0 +1,14 @@
+<form class="text-center border border-light p-5" action="/login" method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Username" name="username"
+               value="{{obj.username}}">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" placeholder="Password" id="password" name="password"
+               value="{{obj.password}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
