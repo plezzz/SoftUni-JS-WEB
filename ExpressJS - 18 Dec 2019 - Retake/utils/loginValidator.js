@@ -1,4 +1,4 @@
-const {errorLogin,errorRegister} = require('../config/messages')()
+const {errorLogin, errorRegister} = require('../config/messages')()
 
 module.exports = (req, res, next) => {
     let errors = {};

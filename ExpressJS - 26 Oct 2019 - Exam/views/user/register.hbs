@@ -1,0 +1,21 @@
+<form action="/register" method="post">
+    {{>error}}
+    <h1>Register</h1>
+
+    <p>Personal info</p>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="JustMyself123..." value="{{obj.username}}">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="******" value="{{obj.password}}">
+
+    <label for="repeatPassword">Repeat Password</label>
+    <input id="repeatPassword" name="repeatPassword" type="password" placeholder="******"
+           value="{{obj.repeatPassword}}">
+    <hr>
+    <p>Account</p>
+    <label for="amount">Amount</label>
+    <input id="amount" name="amount" type="text" placeholder="$125.90" value="{{obj.amount}}">
+
+    <button type="submit">Register</button>
+</form>

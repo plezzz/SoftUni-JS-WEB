@@ -1,7 +1,7 @@
 {
-  "name": "js-backend-retake-exam-19-august-2020",
+  "name": "express-js-26-oct-2019-exam",
   "version": "1.0.0",
-  "description": "SoftUni retake exam from 19 august 2020 Shoe Shelf training",
+  "description": "SoftUni ExpressJS - 26 Oct 2019 - Exam Shoe Theaters",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

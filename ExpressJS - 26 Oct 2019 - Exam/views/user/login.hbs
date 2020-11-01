@@ -1,0 +1,13 @@
+<form action="/login" method="post">
+    {{>error}}
+    <h1>Login</h1>
+
+    <p>Personal info</p>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" placeholder="JustMyself123..." value="{{obj.username}}">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" placeholder="********" value="{{obj.password}}">
+
+    <button type="submit">Login</button>
+</form>

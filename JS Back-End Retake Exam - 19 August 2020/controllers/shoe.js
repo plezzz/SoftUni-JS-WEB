@@ -74,7 +74,7 @@ module.exports = {
             price = priceNormalizer(price)
             Promise.all([
                 Shoe.create({name, price, imageURL, description, brand, createdAt, createdBy}),
-                User.updateOne({_id: createdBy}, {$inc : {'myOffers' : 1}})
+                User.updateOne({_id: createdBy}, {$inc: {'myOffers': 1}})
             ]).then(() => {
                 res.redirect('/')
             })

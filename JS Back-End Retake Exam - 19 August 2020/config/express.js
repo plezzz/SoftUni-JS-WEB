@@ -13,8 +13,6 @@ const hbsConfig = {
 
 module.exports = (express, app) => {
 
-
-
     app.use(express.static(publicDir));
     app.use(express.json());
     app.use(express.urlencoded({extended: false}));

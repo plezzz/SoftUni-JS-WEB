@@ -1,0 +1,27 @@
+{{>error}}
+<section class="actions">
+    <form action="/user/addMoney">
+        <h2>Salary time? Refill your account amount.</h2>
+        <label for="refill-amount"></label><input type="text" name="refill" id="refill-amount">
+        <button type="submit">Refill</button>
+    </form>
+    <div>
+        <h2>New expense comming up?</h2>
+        <a href="/expense/addExpense">Add it now</a>
+    </div>
+</section>
+
+<hr class="separator">
+
+{{#if expenses}}
+    {{>expenses}}
+{{else}}
+    {{#if message}}
+    {{else}}
+        <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
+    {{/if}}
+{{/if}}
+
+
+
+

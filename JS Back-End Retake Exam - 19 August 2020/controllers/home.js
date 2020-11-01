@@ -6,7 +6,7 @@ module.exports = {
             if (req.user) {
                 Shoe
                     .find({})
-                    .sort({ buyers: 'desc'})
+                    .sort({buyers: 'desc'})
                     .lean()
                     .then(shoes => {
                         res.render('home/shoes', {shoes})

@@ -16,7 +16,6 @@ module.exports = (req, res, next) => {
             req.user = {email, _id};
             res.locals.isLogged = Boolean(req.user);
             res.locals.email = email;
-          //  res.locals.id = _id;
             next();
         })
         .catch(next)

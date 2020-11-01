@@ -1,19 +1,20 @@
-<form  action="/register" method="post">
+<form action="/register" method="post">
     <h2>Register</h2>
     <div class="on-dark">
         <label for="username">Username:</label>
-        <input  type="text" name="username" id="username" placeholder="Steven" value="{{obj.username}}">
+        <input type="text" name="username" id="username" placeholder="Steven" value="{{obj.username}}">
     </div>
 
     <div class="on-dark">
         <label for="password">Password:</label>
-        <input  type="password" name="password" id="password" placeholder="********" value="{{obj.password}}">
+        <input type="password" name="password" id="password" placeholder="********" value="{{obj.password}}">
     </div>
 
     <div class="on-dark">
         <label for="repeatPassword">Repeat Password:</label>
-        <input  type="password" name="repeatPassword" id="repeatPassword" placeholder="********" value="{{obj.repeatPassword}}">
+        <input type="password" name="repeatPassword" id="repeatPassword" placeholder="********"
+               value="{{obj.repeatPassword}}">
     </div>
 
-    <button class="btn" type="submit" >Register</button>
+    <button class="btn" type="submit">Register</button>
 </form>

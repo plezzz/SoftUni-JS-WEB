@@ -9,9 +9,9 @@ module.exports = {
         return "BAR!";
     },
     distanceFixed: function (distance) {
-         return distance
-             .toFixed(2)
-             .toString()
-             .replace('.',',')
+        return distance
+            .toFixed(2)
+            .toString()
+            .replace('.', ',')
     }
 }

@@ -15,7 +15,6 @@ module.exports = {
             let id = req.params.offerId;
             let userID = req.user._id.toString();
 
-
             Trip
                 .findOne({_id: id})
                 .populate('createdBy')
@@ -33,34 +32,7 @@ module.exports = {
                     res.render(templateDir('details'), {trip, isCreator, availableSeats, buddies, isJoined})
                 })
                 .catch(next)
-            // Play
-            //     .findOne({_id: id})
-            //     .lean()
-            //     .then(play => {
-            //
-            //         play.usersLiked.forEach(likedUserID => {
-            //             if (likedUserID.toString() === userID) {
-            //                 isLiked = true
-            //             }
-            //         })
-            //         play.createdBy.toString() === userID ? isCreator = true : isCreator = false;
-            //
-            //
-            //         res
-            //             .render(templateDir('details'), {play, isCreator, isLiked})
-            //     })
-            //     .catch(next)
         },
-        // edit(req, res, next) {
-        //     let id = req.params.playId;
-        //     Play
-        //         .findOne({_id: id})
-        //         .lean()
-        //         .then(play => {
-        //             res.render(templateDir('edit'), play)
-        //         })
-        //         .catch(next)
-        // },
         delete(req, res, next) {
             let id = req.params.offerId;
             Trip
@@ -82,10 +54,13 @@ module.exports = {
                 .catch(next)
         },
         shared(req, res, next) {
-            Trip.find({}).lean().then(t => {
-                res.render(templateDir('shared'), {t})
-            })
-
+            Trip
+                .find({})
+                .lean()
+                .then(t => {
+                    res.render(templateDir('shared'), {t})
+                })
+                .catch(next)
         }
     },
 

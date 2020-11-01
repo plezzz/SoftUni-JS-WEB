@@ -26,7 +26,6 @@ module.exports = (mongoose, bcrypt) => {
         }]
     });
 
-
     userSchema.virtual('repeatPassword')
         .get(function () {
             return this._repeatPassword;

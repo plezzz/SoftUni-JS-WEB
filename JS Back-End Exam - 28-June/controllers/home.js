@@ -4,7 +4,7 @@ module.exports = {
     get: {
         home(req, res, next) {
             if (req.user) {
-                let searchArgs='createdAt'
+                let searchArgs = 'createdAt'
                 if (req.query.search) searchArgs = req.query.search;
                 let sortParams = {};
                 sortParams[searchArgs] = 'desc'

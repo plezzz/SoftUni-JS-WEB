@@ -9,7 +9,7 @@ const dbConnectionOptions = {
 };
 
 module.exports = () => {
-    return mongoose.connect(dbConnectionString, dbConnectionOptions).then(data=>{
+    return mongoose.connect(dbConnectionString, dbConnectionOptions).then(data => {
         console.log(messages.db);
         return data
     })

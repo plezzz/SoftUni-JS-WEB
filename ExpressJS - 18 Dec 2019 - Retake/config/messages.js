@@ -25,7 +25,7 @@ module.exports = (data = null) => {
             description: 'The description should be minimum 10 characters long',
             startEnd: 'The Starting Point - End Point - Starting and End point should be at least 4 characters long (each) and should be separated with single space, dash and another single space (" - ")',
             dateTime: '',
-            seats: 'Seats'+ required
+            seats: 'Seats' + required
         }
     }
 };

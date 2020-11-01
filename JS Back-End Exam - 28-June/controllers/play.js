@@ -57,7 +57,7 @@ module.exports = {
             let userID = req.user._id;
             Promise.all([
                 User.updateOne({_id: userID}, {$push: {likedPlays: playID}}),
-                Play.updateOne({_id: playID}, {$push: {usersLiked: userID},$inc: {likes: 1}})
+                Play.updateOne({_id: playID}, {$push: {usersLiked: userID}, $inc: {likes: 1}})
             ]).then(() => {
                 res.redirect(`/play/details/${playID}`)
             })
